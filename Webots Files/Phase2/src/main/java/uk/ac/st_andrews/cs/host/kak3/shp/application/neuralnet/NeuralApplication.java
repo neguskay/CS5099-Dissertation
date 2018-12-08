@@ -1,0 +1,126 @@
+package uk.ac.st_andrews.cs.host.kak3.SHP.application.neuralnet;
+
+import org.encog.ml.MLMethod;
+import org.encog.ml.train.BasicTraining;
+import org.encog.neural.networks.structure.NetworkCODEC;
+import org.encog.neural.networks.training.propagation.TrainingContinuation;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import uk.ac.st_andrews.cs.host.kak3.SHP.application.Application;
+import uk.ac.st_andrews.cs.host.kak3.SHP.framework.ControlParameters;
+import uk.ac.st_andrews.cs.host.kak3.SHP.algorithms.WindingUtil;
+import uk.ac.st_andrews.cs.host.kak3.SHP.algorithms.MoveSequence;
+
+import java.util.List;
+
+public class NeuralApplication extends BasicTraining implements Application {
+    private final NeuralProblem problem;
+
+    private ControlParameters previousMove;
+    private double wind = 0;
+
+    private int epoch = 0;
+
+    /**
+     * Wraps a neural problem with the appropriate interface for the search framework.
+     * @param problem the problem instance to solve.
+     */
+    public NeuralApplication(NeuralProblem problem) {
+        this.problem = problem;
+    }
+
+    @Override
+    public void iteration() {
+
+    }
+
+    @Override
+    public boolean canContinue() {
+        return false;
+    }
+
+    @Override
+    public TrainingContinuation pause() {
+        final TrainingContinuation result = new TrainingContinuation();
+        result.setTrainingType(this.getClass().getSimpleName());
+        return result;
+    }
+
+    @Override
+    public void resume(TrainingContinuation trainingContinuation) {
+
+    }
+
+    @Override
+    public MLMethod getMethod() {
+        return null;
+    }
+
+    private double move(ControlParameters parameters, boolean realMove) {
+        if (realMove) {
+            epoch++;
+            System.out.println("Epoch #" + epoch + " Error:" + getError());
+
+            if (previousMove != null) {
+                wind += WindingUtil.calcWindingDelta(previousMove, parameters);
+            }
+            previousMove = parameters;
+        }
+
+        NetworkCODEC.arrayToNetwork(parameters.getArray(), problem.getNetwork());
+        setError(problem.getNetwork().calculateError(problem.getTrainingSet()));
+        return getError();
+    }
+
+    @Override
+    public double getCurrentCost() {
+        return getError();
+    }
+
+    @Override
+    public void doMove(ControlParameters parameters) {
+        move(parameters, true);
+    }
+
+    @Override
+    public double simulateMove(ControlParameters parameters) {
+        return move(parameters, false);
+    }
+
+    @Override
+    public double simulateMoveSequence(MoveSequence sequence) {
+        return simulateMove(sequence.getLast());
+    }
+
+    @Override
+    public void finished() {
+        System.out.println("Neural Network Results:");
+        System.out.println("Total error: " + getError());
+
+        problem.finished();
+    }
+
+    @Override
+    public ControlParameters initialise() {
+        return problem.getInitialState();
+    }
+
+    @Override
+    public int getParamCount() {
+        return problem.getNetwork().encodedArrayLength();
+    }
+
+    @Override
+    public ControlParameters combineMoves(List<ControlParameters> parameters) {
+        return parameters.get(parameters.size() - 1);
+    }
+
+    @Override
+    public boolean canMoveDirectly() {
+        return true;
+    }
+
+    @Override
+    public double getWind() {
+        return wind;
+    }
+}

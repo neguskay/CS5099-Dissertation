@@ -1,0 +1,69 @@
+#VRML_SIM V8.6 utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.32723043 -0.8845785 -0.33232683 1.7084578
+  position -52.88113 48.79968 -6.8912462
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+RectangleArena {
+  floorSize 60 60
+  wallThickness 0.2
+  wallHeight 1.5
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction -0.33 -1 -0.5
+  castShadows TRUE
+}
+SolidBox {
+  translation 12 0 -12
+  size 28 1 1
+}
+SolidBox {
+  translation 1 0 -22
+  size 20 1 1
+}
+SolidBox {
+  translation 8 0 19
+  size 34 1 1
+}
+SolidBox {
+  translation -12 0 0
+  size 26 1 1
+}
+DEF GOAL SolidBox {
+  translation 17 0 40
+  size 8 4 5
+}
+Pioneer3at {
+  hidden position_0_0 81.1328
+  hidden position_0_1 68.9883
+  hidden position_0_2 81.1326
+  hidden position_0_3 68.9887
+  hidden rotation_6 -1 0 0 5.7345763
+  hidden rotation_7 -1 0 0 6.1564469
+  hidden rotation_8 -1 0 0 5.7343763
+  hidden rotation_9 -1 0 0 6.1568469
+  translation 3.0901927 0.10761107 -28.2187
+  rotation 0.00017792046 0.99999991 0.00038501953 -2.2739574
+  controller "TestSimulated"
+  controllerArgs "SimulatedAnnealing RandomSamples 0.1 --samples 10 --minval 0 --maxval 10 --statspath H:/Projects/SHP/stats/u_shallow_simulatedannealing_axis.csv"
+  extensionSlot [
+    Pen {
+    }
+    Emitter {
+    }
+    Compass {
+    }
+    GPS {
+    }
+    SickLms291 {
+      translation 0 0.24 -0.136
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: uk.ac.st_andrews.cs.host.kak3.SHP.interfaces.BasicFramewor
+ k
+

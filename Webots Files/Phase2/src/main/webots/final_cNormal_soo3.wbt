@@ -1,0 +1,81 @@
+#VRML_SIM V8.6 utf8
+WorldInfo {
+  info [
+    "Pioneer 3AT robot (Adept MobileRobots)."
+    "This all terrain four wheels drive robot is  equipped with a Sick LMS 291 lidar."
+    "It is programmed to perform a simple obstacle avoidance behavior based on the sensor data measured by the lidar."
+  ]
+  title "Pioneer 3AT"
+  physics "rendering_plugin"
+  lineScale 0.5
+}
+Viewpoint {
+  orientation 0.99981992 -0.0020883257 -0.018861541 4.9063907
+  position -1.1254281 71.281804 23.4235
+  follow "pioneer3at"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction -1 -1 -2
+  intensity 0.5
+}
+RectangleArena {
+  floorSize 60 60
+  floorTextureUrl [
+    "textures/checkered_marble.jpg"
+  ]
+  floorTileSize 1 1
+  wallThickness 0.2
+  wallHeight 0.8
+  wallTextureUrl [
+    "textures/gray_brick_wall.jpg"
+  ]
+}
+SolidBox {
+  translation -3.7967949 0.49 17.001769
+  rotation 0 1 0 1.0471975
+}
+SolidBox {
+  translation 6.3810104 0.47 16.781358
+  rotation 0 -1 0 1.0471976
+}
+SolidBox {
+  translation 4.3240216 0.54 15.239241
+  rotation 0 1 0 6.0213859
+}
+SolidBox {
+  translation -1.7814815 0.49 15.414705
+  rotation 0 -1 0 6.0213859
+}
+SolidBox {
+  translation 0.29 0.51 15.02
+}
+SolidBox {
+  translation 2.1012596 0.55 14.988093
+}
+DEF PIONEER_3AT Pioneer3at {
+  hidden position_0_0 78.7071
+  hidden position_0_1 28.1239
+  hidden position_0_2 78.707
+  hidden position_0_3 28.124
+  translation 1.5459634 0.10761107 25.0017
+  rotation -0.0023555555 0.99999715 0.00038876415 0.32652972
+  controller "TestSimulated"
+  extensionSlot [
+    Pen {
+    }
+    Emitter {
+    }
+    Compass {
+    }
+    GPS {
+    }
+    SickLms291 {
+      translation 0 0.24 -0.136
+    }
+  ]
+}
