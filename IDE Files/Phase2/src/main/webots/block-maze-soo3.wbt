@@ -1,0 +1,83 @@
+#VRML_SIM V8.6 utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.55140805 -0.60790729 -0.57131243 2.0803857
+  position -2.4660026 35.362384 -31.933504
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+RectangleArena {
+  floorSize 50 80
+  wallThickness 0.2
+  wallHeight 1.5
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction -0.33 -1 -0.5
+  castShadows TRUE
+}
+SolidBox {
+  translation 12 0 -12
+  size 28 1 1
+}
+SolidBox {
+  translation 1 0 -22
+  size 20 1 1
+}
+SolidBox {
+  translation 8 0 19
+  size 34 1 1
+}
+SolidBox {
+  translation -14 0 -31
+  size 20 1 1
+}
+SolidBox {
+  translation -12 0 0
+  size 26 1 1
+}
+DEF GOAL SolidBox {
+  translation 17 0 40
+  size 8 4 5
+}
+Pioneer3at {
+  hidden position_0_0 81.1328
+  hidden position_0_1 68.9883
+  hidden position_0_2 81.1326
+  hidden position_0_3 68.9887
+  hidden linearVelocity_0 0.0512411 -2.72831e-07 0.0423186
+  hidden angularVelocity_0 2.16037e-05 -0.0552998 -2.75869e-05
+  hidden rotation_6 -1 0 0 5.7345309
+  hidden linearVelocity_6 0.064586 4.30803e-06 0.0434056
+  hidden angularVelocity_6 0.482435 -0.0553771 -0.57016
+  hidden rotation_7 -1 0 0 6.156461
+  hidden linearVelocity_7 0.0479554 4.8307e-06 0.029329
+  hidden angularVelocity_7 0.281317 -0.0553266 -0.332467
+  hidden rotation_8 -1 0 0 5.734357
+  hidden linearVelocity_8 0.0550793 -4.83009e-06 0.0546458
+  hidden angularVelocity_8 0.482433 -0.0553711 -0.570156
+  hidden rotation_9 -1 0 0 6.1568333
+  hidden linearVelocity_9 0.0384484 -4.30742e-06 0.0405693
+  hidden angularVelocity_9 0.28132 -0.0553233 -0.33247
+  translation 3.0901927 0.10761107 -39.217706
+  rotation 0.00017792046 0.99999991 0.00038501953 -2.2739574
+  controller "SHPController"
+  controllerArgs "SimulatedAnnealing RandomSamples 0.1 --samples 10 --minval 0 --maxval 10 --statspath H:/Projects/SHP/stats/u_shallow_simulatedannealing_axis.csv"
+  extensionSlot [
+    Pen {
+    }
+    Emitter {
+    }
+    Compass {
+    }
+    GPS {
+    }
+    SickLms291 {
+      translation 0 0.24 -0.136
+    }
+  ]
+}

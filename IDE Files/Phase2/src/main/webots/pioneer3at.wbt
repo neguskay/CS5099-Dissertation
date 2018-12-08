@@ -1,0 +1,149 @@
+#VRML_SIM V8.5 utf8
+WorldInfo {
+  info [
+    "Pioneer 3AT robot (Adept MobileRobots)."
+    "This all terrain four wheels drive robot is  equipped with a Sick LMS 291 lidar."
+    "It is programmed to perform a simple obstacle avoidance behavior based on the sensor data measured by the lidar."
+  ]
+  title "Pioneer 3AT"
+  physics "rendering_plugin"
+  lineScale 0.5
+}
+Viewpoint {
+  orientation 0.96744358 0.22216504 0.12122544 5.7108429
+  position -4.1396863 25.809105 46.287342
+  follow "pioneer3at"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction -1 -1 -2
+  intensity 0.5
+}
+RectangleArena {
+  floorSize 60 60
+  floorTextureUrl [
+    "textures/checkered_marble.jpg"
+  ]
+  floorTileSize 1 1
+  wallThickness 0.2
+  wallHeight 0.8
+  wallTextureUrl [
+    "textures/gray_brick_wall.jpg"
+  ]
+}
+DEF OBSTACLE_1 Solid {
+  translation 7.2489 1 12.0243
+  children [
+    DEF OBSTACLE_SHAPE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.898039 0.898039 0.898039
+          specularColor 1 1 1
+        }
+        texture ImageTexture {
+          url [
+            "textures/rock.jpg"
+          ]
+        }
+        textureTransform TextureTransform {
+          scale 1.5 1.5
+        }
+      }
+      geometry Cylinder {
+        radius 0.4
+        subdivision 20
+      }
+    }
+  ]
+  boundingObject USE OBSTACLE_SHAPE
+}
+DEF OBSTACLE_7 Solid {
+  translation 5.65869 1 -4.7766
+  children [
+    USE OBSTACLE_SHAPE
+  ]
+  boundingObject USE OBSTACLE_SHAPE
+}
+DEF OBSTACLE_8 Solid {
+  translation 1.98883 1 13.7641
+  children [
+    USE OBSTACLE_SHAPE
+  ]
+  boundingObject USE OBSTACLE_SHAPE
+}
+DEF OBSTACLE_23 Solid {
+  translation -8.157 1 8.52726
+  children [
+    USE OBSTACLE_SHAPE
+  ]
+  boundingObject USE OBSTACLE_SHAPE
+}
+DEF OBSTACLE_26 Solid {
+  translation 4.37035 1 20.3388
+  children [
+    USE OBSTACLE_SHAPE
+  ]
+  boundingObject USE OBSTACLE_SHAPE
+}
+DEF OBSTACLE_27 Solid {
+  translation -1.64434 1 13.2564
+  children [
+    USE OBSTACLE_SHAPE
+  ]
+  boundingObject USE OBSTACLE_SHAPE
+}
+DEF OBSTACLE_31 Solid {
+  translation 1.50233 1 -6.53832
+  children [
+    USE OBSTACLE_SHAPE
+  ]
+  boundingObject USE OBSTACLE_SHAPE
+}
+DEF OBSTACLE_34 Solid {
+  translation -5.35118 1 -0.00018
+  children [
+    USE OBSTACLE_SHAPE
+  ]
+  boundingObject USE OBSTACLE_SHAPE
+}
+DEF OBSTACLE_36 Solid {
+  translation 6.028 1 2.8216
+  children [
+    USE OBSTACLE_SHAPE
+  ]
+  boundingObject USE OBSTACLE_SHAPE
+}
+DEF OBSTACLE_39 Solid {
+  translation -0.01002 1 6.59248
+  children [
+    USE OBSTACLE_SHAPE
+  ]
+  boundingObject USE OBSTACLE_SHAPE
+}
+DEF PIONEER_3AT Pioneer3at {
+  hidden position_0_0 78.7071
+  hidden position_0_1 28.1239
+  hidden position_0_2 78.707
+  hidden position_0_3 28.124
+  translation 1.5459634 0.10761107 19.003732
+  rotation -0.0023555555 0.99999715 0.00038876415 0.32652972
+  controller "SHPController"
+  controllerArgs "FractionalProgress Forwards 0.1 --minval 0 --maxval 10"
+  extensionSlot [
+    Pen {
+    }
+    Emitter {
+    }
+    Compass {
+    }
+    GPS {
+    }
+    SickLms291 {
+      translation 0 0.24 -0.136
+    }
+  ]
+}

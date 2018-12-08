@@ -1,0 +1,103 @@
+#VRML_SIM V8.6 utf8
+WorldInfo {
+  info [
+    "Pioneer 3AT robot (Adept MobileRobots)."
+    "This all terrain four wheels drive robot is  equipped with a Sick LMS 291 lidar."
+    "It is programmed to perform a simple obstacle avoidance behavior based on the sensor data measured by the lidar."
+  ]
+  title "Pioneer 3AT"
+  physics "rendering_plugin"
+  lineScale 0.5
+}
+Viewpoint {
+  orientation 0.81908984 0.49683127 0.28679353 5.1402913
+  position -8.4882258 16.879369 29.373244
+  follow "pioneer3at"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction -1 -1 -2
+  intensity 0.5
+}
+RectangleArena {
+  floorSize 60 60
+  floorTextureUrl [
+    "textures/checkered_marble.jpg"
+  ]
+  floorTileSize 1 1
+  wallThickness 0.2
+  wallHeight 0.8
+  wallTextureUrl [
+    "textures/gray_brick_wall.jpg"
+  ]
+}
+SolidBox {
+  translation 2.6249022 0.41 22.818514
+  rotation 0 1 0 0.26179939
+}
+SolidBox {
+  translation -3.8438784 0.41 21.148782
+  rotation 0 1 0 0.52359877
+}
+SolidBox {
+  translation 4.2659629 0.39 21.350533
+  rotation 0 1 0 4.1887902
+}
+SolidBox {
+  translation -2.4626444 0.4 22.641559
+  rotation 0 -1 0 0.52359881
+}
+SolidBox {
+  translation -3.7967949 0.49 17.001769
+  rotation 0 1 0 1.0471975
+}
+SolidBox {
+  translation -4.4131498 0.44 18.884991
+  rotation 0 1 0 1.5707963
+}
+SolidBox {
+  translation 4.8630112 0.47 19.180923
+  rotation 0 1 0 4.7123889
+}
+SolidBox {
+  translation 4.1359697 0.54 16.997869
+  rotation 0 -1 0 1.0471976
+}
+SolidBox {
+  translation -1.7814815 0.49 15.414705
+  rotation 0 1 0 0.26179939
+}
+SolidBox {
+  translation 0.29 0.51 15.02
+}
+SolidBox {
+  translation 2.4793551 0.55 15.511825
+  rotation 0 -1 0 0.52359881
+}
+DEF PIONEER_3AT Pioneer3at {
+  hidden position_0_0 78.7071
+  hidden position_0_1 28.1239
+  hidden position_0_2 78.707
+  hidden position_0_3 28.124
+  translation 0.82612069 0.10761089 19.247507
+  rotation 0.011475091 -0.9999281 -0.0034802078 6.2184513
+  controller "TestSimulated"
+  controllerArgs "GradientDescent AxisBased 0.1 --minval 0 --maxval 10 --obstacle-coefficient 3"
+  extensionSlot [
+    Pen {
+    }
+    Emitter {
+    }
+    Compass {
+    }
+    GPS {
+    }
+    SickLms291 {
+      translation 0 0.24 -0.136
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+#VRML_SIM V8.5 utf8
+WorldInfo {
+  info [
+    "Pioneer 3AT robot (Adept MobileRobots)."
+    "This all terrain four wheels drive robot is  equipped with a Sick LMS 291 lidar."
+    "It is programmed to perform a simple obstacle avoidance behavior based on the sensor data measured by the lidar."
+  ]
+  title "Pioneer 3AT"
+  physics "rendering_plugin"
+  lineScale 0.5
+}
+Viewpoint {
+  orientation 0.99806329 0.024296317 0.057265763 5.5755306
+  position 0.11724645 20.737947 33.231871
+  follow "pioneer3at"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction -1 -1 -2
+  intensity 0.5
+}
+RectangleArena {
+  floorSize 60 60
+  floorTextureUrl [
+    "textures/checkered_marble.jpg"
+  ]
+  floorTileSize 1 1
+  wallThickness 0.2
+  wallHeight 0.8
+  wallTextureUrl [
+    "textures/gray_brick_wall.jpg"
+  ]
+}
+DEF PIONEER_3AT Pioneer3at {
+  hidden position_0_0 79.9868
+  hidden position_0_1 29.4036
+  hidden position_0_2 79.9867
+  hidden position_0_3 29.4037
+  hidden linearVelocity_0 -0.431325 0.161927 -0.469627
+  hidden angularVelocity_0 1.17173 -0.770632 -0.374316
+  hidden linearVelocity_6 -0.607409 -0.00456527 -0.676706
+  hidden angularVelocity_6 -17.9132 -0.720934 5.60601
+  hidden linearVelocity_7 -0.517251 -0.00742048 -0.388457
+  hidden angularVelocity_7 -17.9132 -0.72094 5.60599
+  hidden linearVelocity_8 -0.406433 0.322134 -0.721203
+  hidden angularVelocity_8 -17.9132 -0.720939 5.60602
+  hidden linearVelocity_9 -0.316047 0.319169 -0.432925
+  hidden angularVelocity_9 -17.9132 -0.720939 5.60602
+  translation 1.5201302 0.11813377 18.973528
+  rotation 0.29128637 0.95516721 -0.052989237 0.29397555
+  controller "SHPController"
+  controllerArgs "FractionalProgress Static  --minval 0 --maxval 10 .1 --distance-metric two-arc"
+  extensionSlot [
+    Pen {
+    }
+    Emitter {
+    }
+    Compass {
+    }
+    GPS {
+    }
+    SickLms291 {
+      translation 0 0.24 -0.136
+    }
+  ]
+}

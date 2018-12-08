@@ -1,0 +1,98 @@
+#VRML_SIM V8.6 utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.48837313 -0.67887991 -0.54828255 2.0538555
+  position -2.4659218 13.849197 -14.54514
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+RectangleArena {
+  floorSize 20 35
+  wallThickness 0.2
+  wallHeight 1.5
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction -0.33 -1 -0.5
+  castShadows TRUE
+}
+Pioneer3at {
+  hidden position_0_0 2.26321e-10
+  hidden position_0_1 2.26393e-10
+  hidden position_0_2 -2.23514e-10
+  hidden position_0_3 -2.23442e-10
+  translation 0 0 -16
+  rotation 0 1 0 -3.1797997
+  controller "SHPController"
+  controllerArgs "SimulatedAnnealing RandomSamples 0.1 --samples 10 --minval 0 --maxval 10 --statspath H:/Projects/SHP/stats/u_shallow_simulatedannealing_axis.csv --energy-coefficient 500 --target 18,1"
+  extensionSlot [
+    Pen {
+    }
+    Emitter {
+    }
+    Compass {
+    }
+    GPS {
+    }
+    SickLms291 {
+      translation 0 0.24 -0.136
+    }
+  ]
+}
+SolidBox {
+  translation 1 0 -1
+  size 1 1 1
+}
+SolidBox {
+  translation 2 0 -1
+  rotation 0 1 0 0.13089969
+  size 1 1 1
+}
+SolidBox {
+  translation 0 0 -1
+  rotation 0 1 0 -0.13089969
+  size 1 1 1
+}
+SolidBox {
+  translation -1 0 -1.1
+  rotation 0 1 0 -0.26180031
+  size 1 1 1
+}
+SolidBox {
+  translation -2 0 -1.2
+  rotation 0 1 0 -0.39269969
+  size 1 1 1
+}
+SolidBox {
+  translation -4 0 -1.9
+  rotation 0 1 0 -0.52359969
+  size 1 1 1
+}
+SolidBox {
+  translation -3 0 -1.7
+  rotation 0 1 0 -0.52359969
+  size 1 1 1
+}
+SolidBox {
+  translation 3 0 -1.1
+  rotation 0 1 0 0.26179969
+  size 1 1 1
+}
+SolidBox {
+  translation 5 0 -2
+  rotation 0 1 0 0.91629969
+  size 1 1 1
+}
+SolidBox {
+  translation 4 0 -1.5
+  rotation 0 1 0 0.65449969
+  size 1 1 1
+}
+DEF GOAL SolidBox {
+  translation 1 0 18
+  size 5 3 3
+}

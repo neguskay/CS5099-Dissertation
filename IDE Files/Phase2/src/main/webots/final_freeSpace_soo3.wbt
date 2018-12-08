@@ -1,0 +1,60 @@
+#VRML_SIM V8.6 utf8
+WorldInfo {
+  info [
+    "Pioneer 3AT robot (Adept MobileRobots)."
+    "This all terrain four wheels drive robot is  equipped with a Sick LMS 291 lidar."
+    "It is programmed to perform a simple obstacle avoidance behavior based on the sensor data measured by the lidar."
+  ]
+  title "Pioneer 3AT"
+  physics "rendering_plugin"
+  lineScale 0.5
+}
+Viewpoint {
+  orientation 0.99968953 -0.0078321932 -0.023653864 4.8863457
+  position -0.084630935 136.14155 34.94484
+  follow "pioneer3at"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction -1 -1 -2
+  intensity 0.5
+}
+RectangleArena {
+  floorSize 60 60
+  floorTextureUrl [
+    "textures/checkered_marble.jpg"
+  ]
+  floorTileSize 1 1
+  wallThickness 0.2
+  wallHeight 0.8
+  wallTextureUrl [
+    "textures/gray_brick_wall.jpg"
+  ]
+}
+DEF PIONEER_3AT Pioneer3at {
+  hidden position_0_0 78.7071
+  hidden position_0_1 28.1239
+  hidden position_0_2 78.707
+  hidden position_0_3 28.124
+  translation 0.83559231 0.10761089 19.2443
+  rotation -0.011475095 0.9999281 0.003480209 0.064734031
+  controller "TestSimulated"
+  controllerArgs "SimulatedAnnealing RandomSamples 0.1 --samples 10 --minval 0 --maxval 10 --statspath H:/Projects/SHP/stats/u_shallow_simulatedannealing_axis.csv"
+  extensionSlot [
+    Pen {
+    }
+    Emitter {
+    }
+    Compass {
+    }
+    GPS {
+    }
+    SickLms291 {
+      translation 0 0.24 -0.136
+    }
+  ]
+}

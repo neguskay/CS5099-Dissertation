@@ -1,0 +1,105 @@
+#VRML_SIM V8.6 utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.48837313 -0.67887991 -0.54828255 2.0538555
+  position -10.39232 49.178494 -2.1817088
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+RectangleArena {
+  floorSize 20 35
+  wallThickness 0.2
+  wallHeight 1.5
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction -0.33 -1 -0.5
+  castShadows TRUE
+}
+Pioneer3at {
+  hidden position_0_0 706.386
+  hidden position_0_1 846.328
+  hidden position_0_2 595.056
+  hidden position_0_3 1017.07
+  hidden rotation_6 -1 0 0 2.6695248
+  hidden rotation_7 -1 0 0 4.3811688
+  hidden rotation_8 -1 0 0 4.4363442
+  hidden rotation_9 1 0 0 0.80576285
+  translation 2.8827544e-7 0.10761107 -15.999999
+  rotation 5.4067216e-5 0.99999992 0.00038759865 -2.8654042
+  controller "TestPotBug"
+  extensionSlot [
+    Pen {
+    }
+    Emitter {
+    }
+    Compass {
+    }
+    GPS {
+    }
+    SickLms291 {
+      translation 0 0.24 -0.136
+    }
+  ]
+}
+SolidBox {
+  translation 1 0 -1
+  size 1 1 1
+}
+SolidBox {
+  translation 2 0 8
+  size 1 1 1
+}
+SolidBox {
+  translation 2 0 -1
+  rotation 0 1 0 0.13089969
+  size 1 1 1
+}
+SolidBox {
+  translation 0 0 -1
+  rotation 0 1 0 -0.13089969
+  size 1 1 1
+}
+SolidBox {
+  translation -1 0 -1.1
+  rotation 0 1 0 -0.26180031
+  size 1 1 1
+}
+SolidBox {
+  translation -2 0 -1.2
+  rotation 0 1 0 -0.39269969
+  size 1 1 1
+}
+SolidBox {
+  translation -4 0 -1.9
+  rotation 0 1 0 -0.52359969
+  size 1 1 1
+}
+SolidBox {
+  translation -3 0 -1.7
+  rotation 0 1 0 -0.52359969
+  size 1 1 1
+}
+SolidBox {
+  translation 3 0 -1.1
+  rotation 0 1 0 0.26179969
+  size 1 1 1
+}
+SolidBox {
+  translation 5 0 -2
+  rotation 0 1 0 0.91629969
+  size 1 1 1
+}
+SolidBox {
+  translation 4 0 -1.5
+  rotation 0 1 0 0.65449969
+  size 1 1 1
+}
+DEF GOAL SolidBox {
+  translation 1 0 18
+  size 5 3 3
+}
