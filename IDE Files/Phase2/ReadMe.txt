@@ -2,7 +2,7 @@
 -- CS-5099 MSC DISSERTATION
 -- MOBILE ROBOT NAVIGATION
 -- UNIVERSITY OF ST ANDREWS
--- Phase 1
+-- Phase 1 Complete
 
 DONE:
 - Added implementations of Simulated Annealing, RRT and PotBug controllers for Webots
